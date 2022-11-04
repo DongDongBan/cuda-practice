@@ -1,13 +1,6 @@
-/*
- * @Program: hello_world.cu
- * @Description: The classic Hello World.
- *
- * @Author: Giacomo Marciani <gmarciani@acm.org>
- * @Institution: University of Rome Tor Vergata
- */
+#include <cstdio>
 
-#include <stdlib.h>
-#include <stdio.h>
+using std::printf;
 
 __device__ void helloGPUDevice(void) {
   printf("[gpu]> Hello world! (device)\n");
@@ -27,9 +20,10 @@ void helloCPU(void) {
   helloCPUFromHost();
 }
 
-int main(void) {
+int main() {
 
   helloGPU<<< 1, 1 >>>();
+  cudaDeviceSynchronize();
 
   helloCPU();
 
