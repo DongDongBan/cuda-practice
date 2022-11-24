@@ -1,0 +1,6 @@
+# CMake Build Directory
+build/
+
+# CUDA C++
+*.o
+*.so
